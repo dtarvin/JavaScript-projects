@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript localStorage example</title>
+</head>
+<body>
+    <h1>JavaScript localStorage demo</h1>
+    <textarea name="myTextArea" id="myTextArea" cols="80" rows="10"></textarea>
+    <p></p>
+    <button onclick="mySave()">Save</button>
+    <button onclick="myLoad()">Load</button>
+
+    <script>
+        var myArray;
+        try {
+            myArray = localStorage.getItem("myContent", JSON.parse(myArray));
+        } catch (error) {
+            myArray = [];
+        }
+        
+        function mySave() {
+            var myContent = document.getElementById("myTextArea").value;
+            myArray.push(myContent);
+            localStorage.setItem("myContent", JSON.stringify(myArray));
+        }
+
+        function myLoad() {
+            var myResults = localStorage.getItem("myContent");
+            document.getElementById("myTextArea").value = myResults;
+        }
+
+        // For prioritizer, need to do list first
+        // add each to do item to local storage using a number as the key
+        // need a loop to go over list
+        // need a sub loop to go over comparison items
+
+    </script>
+</body>
+</html>
+
